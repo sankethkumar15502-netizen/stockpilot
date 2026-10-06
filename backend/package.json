@@ -1,0 +1,18 @@
+{
+  "name": "@stockpilot/backend",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch src/server.js",
+    "start": "node src/server.js",
+    "test": "node --test --test-concurrency=1 test/*.test.js",
+    "check": "node scripts/check.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2", "cors": "^2.8.5", "dotenv": "^17.2.0",
+    "express": "^5.1.0", "express-rate-limit": "^8.2.0", "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.2", "mongoose": "^9.0.0", "openai": "^7.28.0", "zod": "^4.6.5",
+    "@google/genai": "^2.27.0"
+  },
+  "devDependencies": {"mongodb-memory-server": "^11.3.0", "supertest": "^7.1.4"}
+}

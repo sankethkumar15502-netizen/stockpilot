@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: stockpilot-api
+    runtime: node
+    plan: starter
+    buildCommand: npm ci --omit=dev --workspace backend --include-workspace-root=false
+    startCommand: npm run start --workspace backend
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NODE_VERSION
+        value: 24
+      - key: FRONTEND_URL
+        sync: false
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: AI_PROVIDER
+        value: gemini
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GEMINI_MODEL
+        value: gemini-3.5-flash-lite
+      - key: GEMINI_REQUEST_INTERVAL_MS
+        value: '12000'
+      - key: ENABLE_DEMO_CONTROLS
+        value: 'false'

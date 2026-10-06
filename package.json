@@ -1,0 +1,17 @@
+{
+  "name": "stockpilot",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "workspaces": ["backend", "frontend"],
+  "scripts": {
+    "dev": "concurrently -n api,web -c cyan,magenta \"npm run dev -w backend\" \"npm run dev -w frontend\"",
+    "build": "npm run build -w frontend",
+    "test": "npm run test -w backend",
+    "check": "npm run check -w backend && npm run build",
+    "test:ui": "playwright test",
+    "start": "npm run start -w backend",
+    "verify:live": "node backend/scripts/live-smoke.js"
+  },
+  "devDependencies": {"concurrently": "^9.2.0", "@playwright/test": "^1.58.0"}
+}

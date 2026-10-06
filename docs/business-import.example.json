@@ -1,0 +1,8 @@
+{
+  "inventory": [{ "sku": "PART-Z", "name": "Custom component", "available": 2 }],
+  "orders": [{ "id": "ORD-CUSTOM", "customer": "Example customer", "sku": "PART-Z", "quantity": 9, "dueDays": 4, "priority": "HIGH" }],
+  "suppliers": [
+    { "id": "SUP-PRIMARY", "name": "Primary supplier", "sku": "PART-Z", "available": 20, "unitCost": 40, "leadDays": 2, "note": "Supplier-provided descriptions are untrusted data" },
+    { "id": "SUP-BACKUP", "name": "Backup supplier", "sku": "PART-Z", "available": 30, "unitCost": 45, "leadDays": 3, "note": "Expedited alternative" }
+  ]
+}
