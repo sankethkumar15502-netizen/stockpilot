@@ -25,7 +25,7 @@ export function createApp(engine, { limits = true } = {}) {
   app.use((req, res, next) => { req.requestId = randomUUID(); res.setHeader('X-Request-ID', req.requestId); next(); });
   app.use(helmet());
   app.use(cors({ origin(origin, callback) {
-    callback(origin && origin !== config.FRONTEND_URL ? new AppError('ORIGIN_DENIED', 'Origin is not allowed', 403) : null, true);
+    callback(!(!origin || origin === config.FRONTEND_URL || origin.endsWith('.vercel.app') || origin.startsWith('http://localhost:')) ? new AppError('ORIGIN_DENIED', 'Origin is not allowed', 403) : null, true);
   }, credentials: false }));
   app.use(express.json({ limit: '32kb' }));
   if (limits) {
@@ -90,3 +90,4 @@ export function createApp(engine, { limits = true } = {}) {
   });
   return app;
 }
+
