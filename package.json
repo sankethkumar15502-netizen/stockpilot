@@ -6,6 +6,7 @@
   "workspaces": ["backend", "frontend"],
   "scripts": {
     "dev": "concurrently -n api,web -c cyan,magenta \"npm run dev -w backend\" \"npm run dev -w @stockpilot/frontend\"",
+    "vercel-build": "npm run build && rm -rf dist && cp -r frontend/dist dist",
     "build": "npm run build -w @stockpilot/frontend",
     "test": "npm run test -w backend",
     "check": "npm run check -w backend && npm run build",
@@ -15,3 +16,5 @@
   },
   "devDependencies": {"concurrently": "^9.2.0", "@playwright/test": "^1.58.0"}
 }
+
+
